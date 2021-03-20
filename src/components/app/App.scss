@@ -1,9 +1,16 @@
-* {
-  font-family: 'Open Sans', sans-serif;
+@font-face {
+  font-family: 'futura';
+  src: local('futura'), url(../../fonts/futura-bold.otf) format('opentype');
 }
 
-h1 {
-  font-family: 'Major Mono Display', monospace;
-  margin: 0;
-  padding: 20px;
+* {
+  font-family: futura
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+html {
+  height: -webkit-fill-available;
 }
