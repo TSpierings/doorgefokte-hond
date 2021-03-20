@@ -1,0 +1,35 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  header {
+    h1 {
+      margin: 0;
+      padding: 20px;
+    }
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;    
+
+    a {
+      &:visited {
+        color: unset;
+      }
+
+      &:hover {
+        color: lighten($color: black, $amount: 25);
+      }
+    }
+  }
+}
