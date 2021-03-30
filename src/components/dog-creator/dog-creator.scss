@@ -16,7 +16,7 @@
     padding: 15px;
   }
 
-  a {
+  button {
     all: unset;
     width: 10em;
     height: 10em;
@@ -24,6 +24,5 @@
     background-color: transparent;
     border-radius: 50%;
     box-shadow: 3px 3px 10px #000;
-    cursor: pointer;
   }
 }
