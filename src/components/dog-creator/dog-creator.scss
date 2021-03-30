@@ -1,21 +1,36 @@
-.content {
+.dog-creator {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: calc(100vh - 6em);
   color: #002B6F;
+  padding: 3em;
 
-  div {
+  .creator, .nav {
     background-color: #F9BBE4;
     margin-bottom: 50px;
     font-size: 4em;
-    width: 20em;
     text-align: center;
     border-radius: 2em;
     padding: 15px;
   }
 
+  .creator {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    padding: 0.5em;
+    border-radius: 1em;
+    width: 19em;
+  }
+
+  .nav {
+    width: 22em;
+    margin-bottom: 0;
+  }
+  
   button {
     all: unset;
     width: 10em;

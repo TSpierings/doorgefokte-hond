@@ -1,0 +1,31 @@
+.dog-navigator {
+  display: flex;
+  background-color: #C4D7FF;
+  width: 90em;
+  border-radius: 5em;
+  justify-content: space-between;
+
+  .part {
+    flex: 1;
+    border-radius: 1em;
+    margin: 1em;
+    background-color: #FEE7F9;
+    cursor: pointer;
+
+    &.selected {
+      background-color: #F2BBE5;
+    }
+  }
+  
+  button {
+    all: unset;
+    width: 5em;
+    height: 5em;
+    background-size: contain;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px #000;
+    margin: 2em;
+    cursor: pointer;
+  }
+}

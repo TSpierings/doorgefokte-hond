@@ -6,7 +6,7 @@ import play from '../../assets/play.png'
 export class Home extends React.Component<{}, {}> {
 
   render() {
-    return <div className="content" style={{
+    return <div className="home" style={{
       backgroundImage: `url(${background})`
     }}>
       <div>Druk op de groene knop om jouw perfecte hond te creëren</div>
