@@ -29,7 +29,11 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
   }
 
   private nextPhase() {
-    if (this.state.phase == phases.length - 1) return;
+    if (this.state.phase == phases.length - 1) {
+      console.log(`Print dog with properties:`);
+      console.log(this.state.selectedPart);
+      return;
+    };
 
     this.setState({
       phase: this.state.phase + 1
@@ -49,9 +53,16 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
       backgroundImage: `url(${background})`
     }}>
 
-      <div className="creator">
-        <span>{phases[this.state.phase]}</span>
-        <div>stuff</div>
+      <div className={`creator ${phases[this.state.phase]}`}>
+        {this.state.phase < 4 ? (
+          <>
+            <span>{phases[this.state.phase]}</span>
+            <div>stuff</div>
+          </>
+        ) : (
+          <span>Kies een vacht en druk op de groene knop om de hond te creëeren.</span>
+        )}
+        
       </div>
 
       <DogNavigator

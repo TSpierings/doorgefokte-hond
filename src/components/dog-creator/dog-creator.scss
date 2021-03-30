@@ -24,6 +24,13 @@
     padding: 0.5em;
     border-radius: 1em;
     width: 19em;
+
+    &.Vacht {
+      flex: unset;
+      width: 22em;
+      border-radius: 2em;
+      padding: 15px;
+    }
   }
 
   .nav {

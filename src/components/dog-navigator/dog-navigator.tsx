@@ -3,7 +3,6 @@ import './dog-navigator.scss';
 import play from '../../assets/play.png'
 import backward from '../../assets/backward.png'
 import { Dogs } from '../../interfaces/dogs';
-import { headIcons } from '../../interfaces/heads';
 import { iconsByPhase } from '../../interfaces/phases';
 
 interface DogNavigatorProps {
