@@ -41,7 +41,7 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
     
     this.setState({
       selectedPart: [...this.state.selectedPart]
-    });
+    });    
   }
 
   render() {
