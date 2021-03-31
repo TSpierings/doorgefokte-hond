@@ -1,7 +1,7 @@
-export enum Dogs {
-  GoldenRetriever,
-  GermanShepard,
-  CavalierSpaniel,
-  FrenchBulldog,
-  Chihuahua
-};
+export const dogs = [
+  'Golden Retriever',
+  'Duitse Herder',
+  'Franse Bulldog',
+  'Chihuahua',
+  'King Charles-spaniel'
+];
