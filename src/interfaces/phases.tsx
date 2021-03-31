@@ -1,8 +1,8 @@
-import { bodyIcons } from "./bodies";
+import { bodyIcons, bodyParts } from "./bodies";
 import { furIcons } from "./furs";
-import { headIcons } from "./heads";
-import { legIcons } from "./legs";
-import { tailIcons } from "./tails";
+import { headIcons, headParts } from "./heads";
+import { legIcons, legParts } from "./legs";
+import { tailIcons, tailParts } from "./tails";
 
 export const phases = [
   'Kop',
@@ -18,4 +18,11 @@ export const iconsByPhase = [
   legIcons,
   tailIcons,
   furIcons
+];
+
+export const partsByPhase = [
+  headParts,
+  bodyParts,
+  legParts,
+  tailParts
 ];

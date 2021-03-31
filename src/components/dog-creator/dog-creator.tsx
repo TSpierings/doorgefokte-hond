@@ -3,6 +3,7 @@ import './dog-creator.scss';
 import background from '../../assets/background.png'
 import { DogNavigator } from '../dog-navigator/dog-navigator';
 import { phases } from '../../interfaces/phases';
+import { DogVisualization } from '../dog-visualization/dog-visualization';
 
 interface DogCreatorState {
   phase: number,
@@ -57,7 +58,10 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
         {this.state.phase < 4 ? (
           <>
             <span>{phases[this.state.phase]}</span>
-            <div>stuff</div>
+            <DogVisualization 
+              phase={this.state.phase}
+              selectedParts={this.state.selectedPart}
+            />
           </>
         ) : (
           <span>Kies een vacht en druk op de groene knop om de hond te creëeren.</span>
