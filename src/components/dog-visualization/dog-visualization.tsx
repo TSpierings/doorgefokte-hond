@@ -1,7 +1,6 @@
-import { isNull } from 'lodash';
 import * as React from 'react';
-import { headParts } from '../../interfaces/heads';
-import { partsByPhase } from '../../interfaces/phases';
+import { partsByPhase, offsetsByPhase } from '../../interfaces/phases';
+import { bodyPositions } from '../../interfaces/bodies';
 import './dog-visualization.scss';
 
 interface DogVisualizationProps {
@@ -11,12 +10,6 @@ interface DogVisualizationProps {
 
 export class DogVisualization extends React.Component<DogVisualizationProps, {}> {
   private canvasRef: React.RefObject<HTMLCanvasElement>;
-  private locationsByPhase = [
-    { x: 0, y: 0 },
-    { x: 455, y: 350 },
-    { x: 650, y: 650 },
-    { x: 2275, y: 455 }
-  ];
   private drawOrder = [0, 2, 3, 1];
 
   constructor(props: any) {
@@ -44,9 +37,15 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
 
     this.drawOrder.forEach((item, index) => {
       const image = loadedImages[index]
-      const coords = this.locationsByPhase[item];
+      const positions = bodyPositions[this.props.selectedParts[1]];
+
+      let offset = item === 1 ? positions[1] : {
+        x: positions[1].x + positions[item].x - offsetsByPhase[item][this.props.selectedParts[item]].x,
+        y: positions[1].y + positions[item].y - offsetsByPhase[item][this.props.selectedParts[item]].y
+      };
+
       ctx.filter = this.props.phase === item ? 'contrast(0.8) brightness(1.2)' : 'contrast(1) brightness(1)';
-      ctx.drawImage(image as CanvasImageSource, 800 + coords.x, 250 + coords.y);
+      ctx.drawImage(image as CanvasImageSource, 800 + offset.x, 400 + offset.y);
     });
   }
 

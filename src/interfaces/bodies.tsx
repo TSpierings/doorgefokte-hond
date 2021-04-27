@@ -25,3 +25,36 @@ export const bodyParts = [
   frenchBulldogPart,
   chihuahuaPart
 ];
+
+export const bodyPositions = [
+  [
+    { x: -280, y: -120 }, // head
+    { x: 455, y: 350 }, // body
+    { x: 450, y: 780 }, // leg
+    { x: 1800, y: 280 }  // tail
+  ],
+  [
+    { x: -280, y: -120 }, // head
+    { x: 455, y: 350 }, // body
+    { x: 350, y: 780 }, // leg
+    { x: 1745, y: 400 }  // tail
+  ],
+  [
+    { x: -280, y: -120 }, // head
+    { x: 455, y: 350 }, // body
+    { x: 400, y: 780 }, // leg
+    { x: 1750, y: 280 }  // tail
+  ],
+  [
+    { x: -280, y: -120 }, // head
+    { x: 455, y: 350 }, // body
+    { x: 350, y: 780 }, // leg
+    { x: 1640, y: 280 }  // tail
+  ],
+  [
+    { x: -280, y: -120 }, // head
+    { x: 455, y: 350 }, // body
+    { x: 400, y: 780 }, // leg
+    { x: 1720, y: 200 }  // tail
+  ],
+];

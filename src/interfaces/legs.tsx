@@ -25,3 +25,11 @@ export const legParts = [
   frenchBulldogPart,
   chihuahuaPart
 ];
+
+export const legOffsets = [
+  { x: 213, y: 375},
+  { x: 225, y: 378},
+  { x: 248, y: 317},
+  { x: 196, y: 590},
+  { x: 126, y: 299}
+];

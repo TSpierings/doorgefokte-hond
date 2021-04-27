@@ -25,3 +25,11 @@ export const tailParts = [
   frenchBulldogPart,
   chihuahuaPart
 ];
+
+export const tailOffsets = [
+  { x: 100, y: 200},
+  { x: 160, y: 150},
+  { x: 40, y: 74},
+  { x: 115, y: 200},
+  { x: 460, y: 790}
+];

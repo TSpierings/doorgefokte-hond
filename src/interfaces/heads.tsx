@@ -26,3 +26,11 @@ export const headParts = [
   frenchBulldogPart,
   chihuahuaPart
 ];
+
+export const headOffsets = [
+  { x: 300, y: 275},
+  { x: 300, y: 430},
+  { x: 300, y: 320},
+  { x: 390, y: 390},
+  { x: 280, y: 650}
+];
