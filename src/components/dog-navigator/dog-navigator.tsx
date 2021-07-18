@@ -24,8 +24,8 @@ export class DogNavigator extends React.Component<DogNavigatorProps, {}> {
       <button style={{ backgroundImage: `url(${backward})` }} onClick={() => this.props.onBack()} />
 
       {dogs.map((item, index) => (
-        <div key={item} className={`part ${this.props.selected == index ? 'selected' : ''}`} onClick={() => this.select(index)}>
-          <div><img src={iconsByPhase[this.props.phase][index]}/></div>
+        <div key={item} className={`part ${this.props.selected === index ? 'selected' : ''}`} onClick={() => this.select(index)}>
+          <div><img alt='' src={iconsByPhase[this.props.phase][index]}/></div>
           <span>{item}</span>
         </div>
       ))}

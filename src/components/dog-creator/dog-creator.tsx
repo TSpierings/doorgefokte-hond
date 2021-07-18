@@ -22,7 +22,7 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
   }
 
   private previousPhase() {
-    if (this.state.phase == 0) return;
+    if (this.state.phase === 0) return;
 
     this.setState({
       phase: this.state.phase - 1
@@ -30,7 +30,7 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
   }
 
   private nextPhase() {
-    if (this.state.phase == phases.length - 1) {
+    if (this.state.phase === phases.length - 1) {
       console.log(`Print dog with properties:`);
       console.log(this.state.selectedPart);
       return;
@@ -42,10 +42,11 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
   }
 
   private selectPart(index: number) {
-    this.state.selectedPart[this.state.phase] = index;
+    const tempPart = this.state.selectedPart    
+    tempPart[this.state.phase] = index;
     
     this.setState({
-      selectedPart: [...this.state.selectedPart]
+      selectedPart: [...tempPart]
     });    
   }
 
@@ -55,7 +56,7 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
     }}>
 
       <div className={`creator ${phases[this.state.phase]}`}>
-        {this.state.phase < 4 ? (
+        {this.state.phase < 5 ? (
           <>
             <span>{phases[this.state.phase]}</span>
             <DogVisualization 

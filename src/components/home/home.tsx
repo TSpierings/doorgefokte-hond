@@ -10,7 +10,7 @@ export class Home extends React.Component<{}, {}> {
       backgroundImage: `url(${background})`
     }}>
       <div>Druk op de groene knop om jouw perfecte hond te creëren</div>
-      <a style={{backgroundImage: `url(${play})`}} href='dog-creator'/>
+      <a href='dog-creator'><img alt='' src={`url(${play}`} /></a>
     </div>;
   }
 }
