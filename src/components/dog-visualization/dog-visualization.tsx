@@ -2,6 +2,7 @@ import * as React from 'react';
 import { partsByPhase, offsetsByPhase } from '../../interfaces/phases';
 import { bodyPositions } from '../../interfaces/bodies';
 import './dog-visualization.scss';
+import testfur from '../../assets/testfur.png';
 
 interface DogVisualizationProps {
   phase: number,
@@ -31,10 +32,16 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
       });
     });
 
+    
+    const fur = new Image();
+    fur.src = testfur;
+
+    images.push(Promise.resolve(fur));
+
     const loadedImages = await Promise.all(images);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+    
     this.drawOrder.forEach((item, index) => {
       const image = loadedImages[index]
       const positions = bodyPositions[this.props.selectedParts[1]];
@@ -47,6 +54,13 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
       ctx.filter = this.props.phase === item ? 'contrast(0.8) brightness(1.2)' : 'contrast(1) brightness(1)';
       ctx.drawImage(image as CanvasImageSource, 800 + offset.x, 400 + offset.y);
     });
+    ctx.save();
+
+    ctx.filter = 'contrast(1) brightness(1)';
+    ctx.globalCompositeOperation = 'source-in';
+    ctx.drawImage(fur, 0, 0);
+
+    ctx.restore();
   }
 
   componentDidMount() {
