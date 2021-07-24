@@ -2,7 +2,6 @@ import * as React from 'react';
 import { partsByPhase, offsetsByPhase } from '../../interfaces/phases';
 import { bodyPositions } from '../../interfaces/bodies';
 import './dog-visualization.scss';
-import testfur from '../../assets/testfur.png';
 
 interface DogVisualizationProps {
   phase: number,
@@ -31,12 +30,12 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
         partImage.onload = () => resolve(partImage);
       });
     });
-
     
-    const fur = new Image();
-    fur.src = testfur;
-
-    images.push(Promise.resolve(fur));
+    images.push(new Promise(resolve => {
+      const partImage = new Image();
+      partImage.src = partsByPhase[4][this.props.selectedParts[4]];
+      partImage.onload = () => resolve(partImage);
+    }));
 
     const loadedImages = await Promise.all(images);
 
@@ -54,13 +53,18 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
       ctx.filter = this.props.phase === item ? 'contrast(0.8) brightness(1.2)' : 'contrast(1) brightness(1)';
       ctx.drawImage(image as CanvasImageSource, 800 + offset.x, 400 + offset.y);
     });
-    ctx.save();
 
-    ctx.filter = 'contrast(1) brightness(1)';
-    ctx.globalCompositeOperation = 'source-in';
-    ctx.drawImage(fur, 0, 0);
-
-    ctx.restore();
+    if (this.props.phase === 4) {
+      ctx.save();
+      
+      const fur = loadedImages[4];
+  
+      ctx.filter = 'contrast(1) brightness(1)';
+      ctx.globalCompositeOperation = 'source-in';
+      ctx.drawImage(fur as CanvasImageSource, 580, 0);
+  
+      ctx.restore();
+    }
   }
 
   componentDidMount() {

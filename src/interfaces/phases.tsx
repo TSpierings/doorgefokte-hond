@@ -1,5 +1,5 @@
 import { bodyIcons, bodyParts } from "./bodies";
-import { furIcons } from "./furs";
+import { furIcons, furParts } from "./furs";
 import { headIcons, headOffsets, headParts } from "./heads";
 import { legIcons, legOffsets, legParts } from "./legs";
 import { tailIcons, tailParts, tailOffsets } from "./tails";
@@ -24,7 +24,8 @@ export const partsByPhase = [
   headParts,
   bodyParts,
   legParts,
-  tailParts
+  tailParts,
+  furParts
 ];
 
 export const offsetsByPhase = [
