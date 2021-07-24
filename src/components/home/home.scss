@@ -9,11 +9,11 @@
   div {
     background-color: #F9BBE4;
     margin-bottom: 50px;
-    font-size: 4em;
+    font-size: 3em;
     width: 20em;
     text-align: center;
-    border-radius: 2em;
-    padding: 15px;
+    border-radius: 3em;
+    padding: 40px;
   }
 
   a {
@@ -25,5 +25,7 @@
     border-radius: 50%;
     box-shadow: 3px 3px 10px #000;
     cursor: pointer;
+    color: transparent;
+    user-select: none;
   }
 }
