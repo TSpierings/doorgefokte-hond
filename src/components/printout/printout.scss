@@ -1,0 +1,75 @@
+@media print {
+    @page { size: landscape; }
+}
+
+.printout {
+    margin: 40px;
+    color: #002b6f;
+
+    .health {
+        display: flex;
+        flex-direction: column;
+        background-color: #FFF3FB;   
+        padding: 40px;
+        border-radius: 20px;
+
+        :first-child {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .dog {
+        display: flex;
+        margin: 20px 0;
+
+        .creator {
+            flex: 2;
+            margin-right: 20px;
+            border-radius: 40px;
+        }
+
+        span {
+            flex: 1;
+        }
+    }
+
+    .races {
+        display: flex;
+        margin-bottom: 100px;
+
+        div {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+        }
+    }
+
+    .page2 {
+        display: flex;
+        padding-top: 40px;
+
+        .tips {
+            height: 650px;
+            flex: 1;
+            background-color: #FFF3FB;   
+            padding: 40px;
+            border-radius: 20px;
+            margin-right: 20px;
+            font-size: 14px;
+
+            .bullet {
+                display: flex;
+                :first-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .risks {
+            background-color: blue;
+            height: 730px;
+            flex: 5;
+        }
+    }
+}

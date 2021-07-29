@@ -1,23 +1,29 @@
 import * as React from 'react';
-import './dog-creator.scss';
-import background from '../../assets/background.png'
-import { DogNavigator } from '../dog-navigator/dog-navigator';
+import background from '../../assets/background.png';
 import { phases } from '../../interfaces/phases';
+import { DogNavigator } from '../dog-navigator/dog-navigator';
 import { DogVisualization } from '../dog-visualization/dog-visualization';
+import { Printout } from '../printout/printout';
+import './dog-creator.scss';
 
 interface DogCreatorState {
   phase: number,
-  selectedPart: Array<number>
+  selectedPart: Array<number>,
+  name: string
 }
 
 export class DogCreator extends React.Component<{}, DogCreatorState> {
-
+  private printRef: React.RefObject<any>;
+  
   constructor(props: any) {
     super(props);
 
+    this.printRef = React.createRef();
+
     this.state = {
       phase: 0,
-      selectedPart: [0, 0, 0, 0, 0]
+      selectedPart: [0, 0, 0, 0, 0],
+      name: 'Kwispel'
     };
   }
 
@@ -33,6 +39,7 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
     if (this.state.phase === phases.length - 1) {
       console.log(`Print dog with properties:`);
       console.log(this.state.selectedPart);
+      console.log(this.printRef.current);
       return;
     };
 
@@ -42,13 +49,15 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
   }
 
   private selectPart(index: number) {
-    const tempPart = this.state.selectedPart    
+    const tempPart = this.state.selectedPart
     tempPart[this.state.phase] = index;
-    
+
     this.setState({
       selectedPart: [...tempPart]
-    });    
+    });
   }
+
+  
 
   render() {
     return <div className="dog-creator" style={{
@@ -59,15 +68,18 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
         {this.state.phase < 5 ? (
           <>
             <span>{phases[this.state.phase]}</span>
-            <DogVisualization 
+            <DogVisualization
               phase={this.state.phase}
               selectedParts={this.state.selectedPart}
             />
           </>
         ) : (
-          <span>Kies een vacht en druk op de groene knop om de hond te creëeren.</span>
+          <>
+            <span>{phases[this.state.phase]}</span>
+            <input type='text' spellCheck={false} maxLength={10} value={this.state.name} autoFocus onChange={(el) => this.setState({ name: el.target.value })}/>
+          </>
         )}
-        
+
       </div>
 
       <DogNavigator
@@ -76,7 +88,12 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
         onBack={() => this.previousPhase()}
         onForward={() => this.nextPhase()}
         onSelect={(index: number) => this.selectPart(index)}
+        componentToPrint={this.printRef}
       />
+
+      <div style={{display: 'none'}}>
+        <Printout ref={this.printRef} name={this.state.name} selectedParts={this.state.selectedPart} />
+      </div>
     </div>
   }
 }

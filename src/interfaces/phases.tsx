@@ -9,7 +9,8 @@ export const phases = [
   'Romp',
   'Poten',
   'Staart',
-  'Vacht'
+  'Vacht',
+  'Naam'
 ];
 
 export const iconsByPhase = [

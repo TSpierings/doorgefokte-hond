@@ -9,6 +9,7 @@ import {
 
 import { Home } from '../home/home';
 import { DogCreator } from '../dog-creator/dog-creator';
+import { Printout } from '../printout/printout';
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
 
         <Route exact path="/dog-creator">
           <DogCreator />
+        </Route>
+
+        <Route exact path="/printout">
+          <Printout name='Kwispel' selectedParts={[1, 2, 1, 1, 4]}/>
         </Route>
 
         <Route path="*">
