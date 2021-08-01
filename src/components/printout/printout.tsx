@@ -1,6 +1,6 @@
-
 import * as React from 'react';
 import { DogVisualization } from '../dog-visualization/dog-visualization';
+import { Knob } from './knob';
 import './printout.scss';
 
 interface PrintoutProps {
@@ -87,11 +87,11 @@ export class Printout extends React.Component<PrintoutProps, {}> {
         {this.getSecondaryText(health)}
       </div>
       <div className='races'>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
+        <Knob percentage={30} type={0}/>
+        <Knob percentage={30} type={1}/>
+        <Knob percentage={30} type={2}/>
+        <Knob percentage={30} type={3}/>
+        <Knob percentage={30} type={4}/>
       </div>
 
       <div className='page2'>

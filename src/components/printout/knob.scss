@@ -1,0 +1,72 @@
+.circular {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    transform: scale(2);
+    margin: 50px;
+
+    .inner {
+        position: absolute;
+        z-index: 6;
+        top: 50%;
+        left: 50%;
+        height: 80px;
+        width: 80px;
+        margin: -40px 0 0 -40px;
+        background: #fff;
+        border-radius: 100%;
+    }
+
+    .number {
+        position: absolute;
+        top: 66%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        font-size: 18px;
+        font-weight: 500;
+        color: #002b6f;
+    }
+
+    .icon {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+
+    .bar {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #eee;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        clip: rect(0px, 100px, 100px, 50px);
+
+        .progress {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+            -webkit-border-radius: 100%;
+            clip: rect(0px, 50px, 100px, 0px);
+            background: black;
+        }
+    }
+
+    .circle {
+        .right {
+            transform: rotate(180deg);
+            z-index: 3;
+        }
+
+        .left {
+            .progress {
+                z-index: 1;
+            }
+        }
+    }
+}

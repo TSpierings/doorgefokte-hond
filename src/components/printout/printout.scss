@@ -36,13 +36,8 @@
 
     .races {
         display: flex;
+        justify-content: space-evenly;
         margin-bottom: 100px;
-
-        div {
-            height: 150px;
-            width: 150px;
-            background-color: red;
-        }
     }
 
     .page2 {
