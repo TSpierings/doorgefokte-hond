@@ -62,9 +62,12 @@
         }
 
         .risks {
-            background-color: blue;
             height: 730px;
             flex: 5;
+
+            img {
+                margin-bottom: 10px;
+            }
         }
     }
 }

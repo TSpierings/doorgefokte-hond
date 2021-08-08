@@ -24,7 +24,7 @@ function App() {
         </Route>
 
         <Route exact path="/printout">
-          <Printout name='Kwispel' selectedParts={[1, 0, 4, 3, 2]}/>
+          <Printout name='Kwispel' selectedParts={[0, 3, 4, 4, 4]}/>
         </Route>
 
         <Route path="*">

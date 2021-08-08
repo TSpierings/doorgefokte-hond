@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { partsByPhase } from '../../interfaces/phases';
+import { bodyRisks, furRisks, headRisks, legsRisks } from '../../interfaces/risks';
 import { DogVisualization } from '../dog-visualization/dog-visualization';
 import { Knob } from './knob';
 import './printout.scss';
@@ -142,7 +143,12 @@ export class Printout extends React.Component<PrintoutProps, {}> {
           </div>
 
         </div>
-        <div className='risks'></div>
+        <div className='risks'>
+          <img alt='head risks' src={headRisks[this.props.selectedParts[0]]} />
+          <img alt='body risks' src={bodyRisks[this.props.selectedParts[1]]} />
+          <img alt='leg risks' src={legsRisks[this.props.selectedParts[2]]} />
+          <img alt='fur risks' src={furRisks[this.props.selectedParts[4]]} />
+        </div>
       </div>
     </div>
   }
