@@ -16,6 +16,49 @@ interface DogNavigatorProps {
 }
 
 export class DogNavigator extends React.Component<DogNavigatorProps, {}> {
+  private buttonRef: React.RefObject<HTMLButtonElement>;
+
+  constructor(props: DogNavigatorProps) {
+    super(props);
+
+    this.buttonRef = React.createRef();
+  }
+
+  private listener = (event: KeyboardEvent) => {
+    console.log(event);
+    switch(event.key) {
+      case 'ArrowLeft':
+        if (this.props.phase === 0) {
+          window.location.href = 'home';
+        }
+        this.props.onBack();
+        break;
+      case 'ArrowRight':
+        if (this.props.phase === 5) {
+          this.buttonRef.current?.click();
+        }
+        this.props.onForward();
+        break;
+      case ',':
+        if (this.props.selected > 0) {
+          this.select(this.props.selected - 1);
+        }
+        break;
+      case '.':
+        if (this.props.selected < 4) {
+          this.select(this.props.selected + 1);
+        }
+        break;
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener('keyup', this.listener);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keyup', this.listener);
+  }
 
   private select(index: number) {
     this.props.onSelect(index);
@@ -39,11 +82,9 @@ export class DogNavigator extends React.Component<DogNavigatorProps, {}> {
           </div>
 
           <ReactToPrint
-            trigger={() => <button style={{ backgroundImage: `url(${play})` }} onClick={() => this.props.onForward()} />}
+            trigger={() => <button ref={this.buttonRef} style={{ backgroundImage: `url(${play})` }} onClick={() => this.props.onForward()} />}
             content={() => this.props.componentToPrint!!.current}
           />
-
-          
         </>
       )}
 

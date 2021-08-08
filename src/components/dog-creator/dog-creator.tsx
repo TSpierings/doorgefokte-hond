@@ -37,9 +37,6 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
 
   private nextPhase() {
     if (this.state.phase === phases.length - 1) {
-      console.log(`Print dog with properties:`);
-      console.log(this.state.selectedPart);
-      console.log(this.printRef.current);
       return;
     };
 
@@ -56,8 +53,6 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
       selectedPart: [...tempPart]
     });
   }
-
-  
 
   render() {
     return <div className="dog-creator" style={{
