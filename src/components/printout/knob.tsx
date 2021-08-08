@@ -11,8 +11,6 @@ const healthColors = [
 ];
 
 export function Knob({ percentage, type }: any) {
-  // const percentage = 100;
-
   const left = Math.min(50, percentage);
   const right = Math.max(0, percentage - 50);
 
