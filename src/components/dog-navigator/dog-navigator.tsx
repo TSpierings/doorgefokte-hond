@@ -34,6 +34,7 @@ export class DogNavigator extends React.Component<DogNavigatorProps, {}> {
         this.props.onBack();
         break;
       case 'ArrowRight':
+      case 'Enter':
         if (this.props.phase === 5) {
           this.buttonRef.current?.click();
         }
@@ -82,6 +83,7 @@ export class DogNavigator extends React.Component<DogNavigatorProps, {}> {
           </div>
 
           <ReactToPrint
+            onAfterPrint={() => window.location.href = 'home'}
             trigger={() => <button ref={this.buttonRef} style={{ backgroundImage: `url(${play})` }} onClick={() => this.props.onForward()} />}
             content={() => this.props.componentToPrint!!.current}
           />
