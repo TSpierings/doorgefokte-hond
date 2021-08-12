@@ -2,6 +2,7 @@ import * as React from 'react';
 import { partsByPhase } from '../../interfaces/phases';
 import { bodyRisks, furRisks, headRisks, legsRisks } from '../../interfaces/risks';
 import { DogVisualization } from '../dog-visualization/dog-visualization';
+import { HealthMeter } from '../health-meter/health-meter';
 import { Knob } from './knob';
 import './printout.scss';
 
@@ -89,7 +90,8 @@ export class Printout extends React.Component<PrintoutProps, {}> {
 
     return <div className='printout'>
       <div className='health'>
-        {this.getHealthText(health)}
+        <div className='text'>{this.getHealthText(health)}</div>
+        <HealthMeter selectedParts={this.props.selectedParts} />
       </div>
       <div className='dog'>
         <div className='creator' style={{ backgroundColor: this.healthColors[health - 1] }}>

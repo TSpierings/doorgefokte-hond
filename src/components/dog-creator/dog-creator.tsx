@@ -3,6 +3,7 @@ import background from '../../assets/background.png';
 import { phases } from '../../interfaces/phases';
 import { DogNavigator } from '../dog-navigator/dog-navigator';
 import { DogVisualization } from '../dog-visualization/dog-visualization';
+import { HealthMeter } from '../health-meter/health-meter';
 import { Printout } from '../printout/printout';
 import './dog-creator.scss';
 
@@ -62,7 +63,10 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
       <div className={`creator ${phases[this.state.phase]}`}>
         {this.state.phase < 5 ? (
           <>
-            <span>{phases[this.state.phase]}</span>
+            <div className='header'>
+              <span>{phases[this.state.phase]}</span>
+              <HealthMeter selectedParts={this.state.selectedPart}/>
+            </div>
             <DogVisualization
               phase={this.state.phase}
               selectedParts={this.state.selectedPart}
@@ -70,12 +74,15 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
           </>
         ) : (
           <>
-            <span>{phases[this.state.phase]}</span>
+            <div className='header'>
+              <span>{phases[this.state.phase]}</span>
+              <HealthMeter selectedParts={this.state.selectedPart}/>
+            </div>
             <input type='text' spellCheck={false} maxLength={10} value={this.state.name} autoFocus onChange={(el) => this.setState({ name: el.target.value })}/>
           </>
         )}
-
       </div>
+
 
       <DogNavigator
         phase={this.state.phase}

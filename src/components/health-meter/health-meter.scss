@@ -1,0 +1,11 @@
+.health-meter {
+  min-width: 150px;
+  font-size: 16px;
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 90px;
+    left: 25px;
+  }
+}

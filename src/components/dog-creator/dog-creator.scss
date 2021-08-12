@@ -5,7 +5,7 @@
   align-items: center;
   height: calc(100vh - 6em);
   color: #002b6f;
-  padding: 3em;
+  padding: 4em;
 
   .creator {
     display: flex;
@@ -28,6 +28,12 @@
       background: none;
       border: none;
       outline: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
   }
 }
