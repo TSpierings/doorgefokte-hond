@@ -2,6 +2,7 @@ import * as React from 'react';
 import { partsByPhase, offsetsByPhase } from '../../interfaces/phases';
 import { bodyPositions } from '../../interfaces/bodies';
 import './dog-visualization.scss';
+import { featureOffsets, features, goldenFeatures } from '../../interfaces/features';
 
 interface DogVisualizationProps {
   phase: number,
@@ -16,6 +17,14 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
     super(props);
 
     this.canvasRef = React.createRef();
+  }
+
+  private getFeature() {
+    if(this.props.selectedParts[0] === 0) {
+      return goldenFeatures[this.props.selectedParts[4]];
+    }
+
+    return features[this.props.selectedParts[0]];
   }
 
   private async drawCanvas() {
@@ -34,6 +43,12 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
     images.push(new Promise(resolve => {
       const partImage = new Image();
       partImage.src = partsByPhase[4][this.props.selectedParts[4]];
+      partImage.onload = () => resolve(partImage);
+    }));
+
+    images.push(new Promise(resolve => {
+      const partImage = new Image();
+      partImage.src = this.getFeature();
       partImage.onload = () => resolve(partImage);
     }));
 
@@ -64,6 +79,13 @@ export class DogVisualization extends React.Component<DogVisualizationProps, {}>
       ctx.drawImage(fur as CanvasImageSource, 580, 0);
   
       ctx.restore();
+    }
+    
+    if (this.props.phase >= 4) {
+      const feature = new Image();
+      feature.src = this.getFeature();
+      const featureOffset = featureOffsets[this.props.selectedParts[0]];
+      ctx.drawImage(feature as CanvasImageSource, 800 - featureOffset.x, 400 - featureOffset.y);
     }
   }
 
