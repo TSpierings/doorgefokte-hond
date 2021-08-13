@@ -6,6 +6,8 @@ import { DogVisualization } from '../dog-visualization/dog-visualization';
 import { HealthMeter } from '../health-meter/health-meter';
 import { Printout } from '../printout/printout';
 import './dog-creator.scss';
+import startSound from '../../assets/sounds/start.mp3';
+import printSound from '../../assets/sounds/print.wav';
 
 interface DogCreatorState {
   phase: number,
@@ -15,11 +17,13 @@ interface DogCreatorState {
 
 export class DogCreator extends React.Component<{}, DogCreatorState> {
   private printRef: React.RefObject<any>;
+  private printSoundRef: React.RefObject<HTMLAudioElement>;
   
   constructor(props: any) {
     super(props);
 
     this.printRef = React.createRef();
+    this.printSoundRef = React.createRef();
 
     this.state = {
       phase: 0,
@@ -96,6 +100,9 @@ export class DogCreator extends React.Component<{}, DogCreatorState> {
       <div style={{display: 'none'}}>
         <Printout ref={this.printRef} name={this.state.name} selectedParts={this.state.selectedPart} />
       </div>
+
+      <audio src={startSound} preload='auto' autoPlay/>
+      <audio ref={this.printSoundRef} src={printSound} preload='auto'/>
     </div>
   }
 }

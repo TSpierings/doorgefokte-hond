@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './home.scss';
 import background from '../../assets/background.png'
-import play from '../../assets/play.png'
+import playImage from '../../assets/play.png'
 
 export class Home extends React.Component<{}, {}> {
 
@@ -27,7 +27,7 @@ export class Home extends React.Component<{}, {}> {
       backgroundImage: `url(${background})`
     }}>
       <div>Druk op de groene knop om jouw perfecte hond te creëren.</div>
-      <a href='dog-creator' style={{ backgroundImage: `url(${play})` }}>next</a>
+      <a href='dog-creator' style={{ backgroundImage: `url(${playImage})` }}>next</a>
     </div>;
   }
 }
