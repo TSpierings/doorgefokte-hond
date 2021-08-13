@@ -94,7 +94,7 @@ export class Printout extends React.Component<PrintoutProps, {}> {
         <HealthMeter selectedParts={this.props.selectedParts} />
       </div>
       <div className='dog'>
-        <div className='creator' style={{ backgroundColor: this.healthColors[health - 1] }}>
+        <div className='creator' style={{ backgroundColor: '#AECCD0' }}>
           <DogVisualization
             phase={4}
             selectedParts={this.props.selectedParts}
@@ -146,11 +146,14 @@ export class Printout extends React.Component<PrintoutProps, {}> {
 
         </div>
         <div className='risks'>
+          <span>Ernstige aandoeningen waar jouw hond risico op loopt:</span>
           <img alt='head risks' src={headRisks[this.props.selectedParts[0]]} />
           <img alt='body risks' src={bodyRisks[this.props.selectedParts[1]]} />
           <img alt='leg risks' src={legsRisks[this.props.selectedParts[2]]} />
           <img alt='fur risks' src={furRisks[this.props.selectedParts[4]]} />
+          <span>© Lisanne Linders</span>
         </div>
+        <span className='vertical'>Voor meer informatie over de erfelijke aandoeningen van rashonden kijk op www.dierenrecht.nl/rashondenwijzer</span>
       </div>
     </div>
   }

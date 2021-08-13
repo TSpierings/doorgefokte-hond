@@ -3,14 +3,17 @@
   src: local('futura'), url(../../fonts/futura-bold.otf) format('opentype');
 }
 
-* {
-  font-family: futura
+@font-face {
+  font-family: 'futura-medium';
+  src: local('futura-medium'), url(../../fonts/futura-medium.otf) format('opentype');
 }
 
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  font-family: futura
 }
+
 html {
   height: -webkit-fill-available;
 }

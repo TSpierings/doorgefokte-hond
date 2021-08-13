@@ -7,6 +7,7 @@ export class Home extends React.Component<{}, {}> {
 
   private listener = (event: KeyboardEvent) => {
     switch(event.key) {
+      case 'Enter':
       case 'ArrowRight':
         window.location.href = 'dog-creator';
         break;

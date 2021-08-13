@@ -28,6 +28,7 @@
   .dog {
     display: flex;
     margin: 20px 0;
+    font-family: futura-medium;
 
     .creator {
       flex: 2;
@@ -49,6 +50,7 @@
   .page2 {
     display: flex;
     padding-top: 40px;
+    position: relative;
 
     .tips {
       height: 650px;
@@ -58,6 +60,7 @@
       border-radius: 20px;
       margin-right: 20px;
       font-size: 14px;
+      font-family: futura-medium;
 
       .bullet {
         display: flex;
@@ -69,11 +72,31 @@
 
     .risks {
       height: 730px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       flex: 4;
 
-      img {
-        margin-bottom: 10px;
+      span {
+        line-height: 40px;
       }
+
+      img {
+        margin-bottom: 10px;;
+      }
+
+      :last-child {
+        margin-left: 200px;
+      }
+    }
+
+    .vertical {
+      position: absolute;
+      transform: rotate(-90deg);
+      left: 66%;
+      top: 52%;
+      white-space: nowrap;
+      font-size: 12px;
     }
   }
 }
