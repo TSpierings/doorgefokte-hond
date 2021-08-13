@@ -18,8 +18,8 @@ export const features = [
 
 export const goldenFeatures = [
   golden,
-  goldenSpaniel,
   goldenGerman,
+  goldenSpaniel,  
   goldenBulldog,
   goldenChihuahua
 ];
